@@ -1,3 +1,89 @@
 \section{Příklad 5}
 % Jako parametr zadejte skupinu (A-H)
 \patyZadani{F}
+
+Sestavíme rovnici pro $u'_c$ :
+\begin{gather*}
+    i = \frac{u_r}{R} \\
+    u_r + u_c - U = 0 \\
+    u'_C = \frac{i}{C} = \frac{U - u_C}{RC}
+\end{gather*}
+
+Vytvoříme diferenciální rovnici:
+\begin{gather*}
+    u'_c = \frac{22 - u_C}{5 \times 10} \\
+    u'_c + u_c \times \frac{1}{50} = \frac{22}{50}
+\end{gather*}
+
+Vypočítáme $\lambda$ z charakteristické rovnice ( $\lambda = u'_C$, $1 = u_C$ ):
+\begin{gather*}
+    \lambda + \frac{1}{R \times C} = 0 \\
+    \lambda + \frac{1}{50} = 0 \\
+    \lambda = - \frac{1}{50}
+\end{gather*}
+
+Očekávaný tvar rovnice a derivace
+\begin{gather*}
+    u_c(t) = k(t)e^{\lambda \times t} \\
+    u_c(t) = k(t)e^{-\frac{t}{50}} \\
+    u'_c(t) = k'(t)e^{-\frac{t}{50}} + k(t) \Big(-\frac{1}{50}\Big) e^{-\frac{t}{50}}
+\end{gather*}
+
+Dosadíme $u_C$ a $u'_C$ do diferenciální rovnice:
+\begin{gather*}
+    u'_c + u_C \frac{1}{50} = \frac{22}{50} \\
+    k'(t)e^{-\frac{t}{50}} + k(t) \Big(-\frac{1}{50}\Big)e^{-\frac{t}{50}}
+    + k(t) \Big(\frac{1}{50}\Big)e^{-\frac{t}{50}} = \frac{22}{50} \\
+    k'(t)e^{-\frac{t}{50}} = \frac{22}{50}
+\end{gather*}
+
+Zbavíme se derivace a vyjádříme k(t):
+\begin{gather*}
+    k'(t)e^{-\frac{t}{50}} = \frac{22}{50} \\
+    k'(t) = \frac{20}{250}e^{\frac{t}{500}} \\
+    \int k'(t) = \int \frac{22}{50}e^{\frac{t}{50}}dt \\
+    k(t) = \frac{22}{50} \times \frac{1}{\frac{1}{50}} e^{\frac{t}{50}} + K \\
+    k(t) = 22e^{\frac{t}{50}} + K
+\end{gather*}
+
+Dosadíme k(t) do očakávanej rovnice:
+\begin{gather*}
+    u_c(t) = k(t)e^{-\frac{t}{50}}
+    u_c(t) = (22e^{\frac{t}{50}} + K) \times e^{-\frac{t}{50}} \\ 
+    u_c(t) = 22 + Ke^{-\frac{t}{50}}
+\end{gather*}
+
+Vypočítame $K$ při t = 0:
+\begin{gather*}
+    u_c(0) = 22 + Ke^0 \\
+    K = 8 - 22 \\
+    K = -14
+\end{gather*}
+
+Dosadíme $K$ do rovnice:
+\begin{gather*}
+    u_c(t) = 22 - 14e^{-\frac{t}{50}}
+\end{gather*}
+
+\newpage
+
+\begin{center}
+    \textbf{Kontrola vysledku}
+\end{center} 
+Nejprve vyjádříme $u'_c$:
+\begin{gather*}
+    u'_c + u_c\frac{1}{50} = \frac{22}{50} \\\\
+    u_c(t) = 22 - 14e^{-\frac{t}{50}} \\\\
+    u'_c + \frac{22}{50} - \frac{14e^{-\frac{t}{50}}}{50} = \frac{22}{50} \\\\
+    u'_c = \frac{14e^{-\frac{t}{50}}}{50}
+\end{gather*}
+
+Dosadíme do zostavenej diferenciálnej rovnice a dopočítame s hodnotami $k = -14$ a $t = 0$:
+\begin{gather*}
+    u'_c + u_c \times \frac{1}{50} = \frac{22}{50} \\\\
+    \frac{ 14e^{ -\frac{t}{50} } }{50} + \frac{ 22 - 14e^{-\frac{t}{50}} }{50} = \frac{22}{50} \\\\
+    \frac{ 14e^{0} }{50} + \frac{ 22 - 14e^{0} }{50} = \frac{22}{50} \\\\
+    \frac{ 14 }{50} + \frac{ 22 - 14 }{50} = \frac{22}{50} \\\\
+    \frac{ 22 }{50} = \frac{22}{50} \\\\
+    \textbf{0 = 0}
+\end{gather*}
